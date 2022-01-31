@@ -1,0 +1,70 @@
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-lime-200">
+  <h1 class="text-4xl font-semibold text-center my-10">All Tasks List</h1>
+
+  <br />
+  <br />
+
+  <div class="m-3">
+    <h3 class="text-2xl text-gray-800 font-bold ml-10">Pending Tasks</h3>
+    <ul class="w-full rounded-lg mt-2 mb-3 text-blue-800">
+      {% for task in tasks %}
+      <li class="mb-1">
+        <div
+          class="w-fill flex justify-between p-3 pl-3 mx-10 bg-gray-100 hover:bg-gray-200 rounded-lg"
+        >
+          <div class="flex">
+            <img
+              class="flex-none w-6 h-full"
+              src="https://cdn-icons.flaticon.com/png/512/721/premium/721532.png?token=exp=1643620568~hmac=2a9c4086ccf41e206b23d7ff52a3e3c9"
+            />
+            <span class="ml-2 truncate">{{forloop.counter}}. {{task}}</span>
+          </div>
+          <div>
+            <button
+              class="bg-red-300 hover:bg-red-400 text-black font-bold py-2 px-2 ml-5 rounded inline-flex items-center float-right"
+            >
+              <a href="/delete_task/{{forloop.counter}}/">
+                <img
+                  class="fill-current w-4 h-4"
+                  src="https://cdn-icons.flaticon.com/png/512/3756/premium/3756615.png?token=exp=1643621061~hmac=e54a133bb68265f6224edc3be2ffe229"
+              /></a>
+            </button>
+            <button
+              class="bg-blue-300 hover:bg-blue-400 text-black font-bold py-2 px-2 ml-5 rounded inline-flex items-center float-right"
+            >
+              <img
+                class="fill-current w-4 h-4"
+                src="https://cdn-icons.flaticon.com/png/512/5290/premium/5290058.png?token=exp=1643622080~hmac=7222750daf1127f1c1c17cb2de342411"
+              /><a href="/complete_task/{{forloop.counter}}/">Mark Done</a>
+            </button>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="m-3">
+    <h3 class="text-2xl text-gray-800 font-bold ml-10">Completed Tasks</h3>
+    <ul class="w-full rounded-lg mt-2 mb-3 text-blue-800">
+      {% for task in completed %}
+      <li class="mb-1">
+        <div
+          class="w-fill flex justify-between p-3 pl-3 mx-10 bg-gray-100 hover:bg-gray-200 rounded-lg"
+        >
+          <div class="flex">
+            <img
+              class="flex-none w-6 h-full"
+              src="https://cdn-icons-png.flaticon.com/512/711/711239.png"
+            />
+            <span class="ml-2 truncate">{{forloop.counter}}. {{task}}</span>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
